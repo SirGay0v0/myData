@@ -7,13 +7,17 @@ import javax.persistence.*;
 public class Person {
     @Id
     @GeneratedValue
-    @Column(name="id", nullable = false)
+    @Column(name = "id", nullable = false)
     private Long Id;
 
-    @Column(name="person_name")
+    @Column(name = "person_name")
     private String name;
 
-    public Person(){}
+    public Person() {
+    }
+    public Person(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return Id;

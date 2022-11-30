@@ -16,18 +16,27 @@ public class PersonController {
     PersonRep personRep;
 
     @RequestMapping("create-person")
-    public Person createPerson(){
-        return personRep.save(new Person());
+    public Person createPerson() {
+        return personRep.save(new Person("Clara"));
     }
 
     @RequestMapping("find/{id}")
-    public Optional<Person> findPerson(@PathVariable Long id){
+    public Optional<Person> findPerson(@PathVariable Long id) {
         return personRep.findById(id);
     }
 
     @RequestMapping("delete/{id}")
-    public void deletePerson(@PathVariable Long id){
+    public void deletePerson(@PathVariable Long id) {
         personRep.deleteById(id);
-        return;
+    }
+
+    @RequestMapping("findAll")
+    public void findAll() {
+        personRep.findAll();
+    }
+
+    @RequestMapping("deleteAll")
+    public void deleteAll() {
+        personRep.deleteAll();
     }
 }
